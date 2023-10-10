@@ -1,0 +1,235 @@
+*{
+    margin: 0;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.back{
+    margin:10px;
+    background: url("../img/back.png") no-repeat;
+    width: 55px;
+    height: 55px;
+    border-style: none;
+    cursor: pointer;
+}
+
+.home{
+    margin:10px;
+    width: 55px;
+    height: 55px;
+    border-style: none;
+    cursor: pointer;
+    background: url("../img/homeWeb.png") no-repeat center;
+}
+
+.locationContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.locationBox {
+    padding: 10px;
+    width: 480px;
+}
+.locationText{
+    color: #0DA2AB;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 5px;
+}
+
+.myLocation{
+    display: flex;
+    flex-direction: row;
+}
+
+img{
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+}
+
+.myLocationText{
+    color: black;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+li{
+    list-style-type: none;
+    padding: 0 15px 5px 15px;
+    text-decoration: none;
+    color: black;
+    vertical-align : bottom;
+
+}
+
+.storeBox{
+    width: 480px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 30px;
+    box-shadow: 5px 5px 5px #949494;
+}
+
+.storeImg{
+    width: 70px;
+    height: 70px;
+    background-color: #949494;
+    border-color: #949494;
+    border-radius: 5px;
+    border-width: 1px;
+    margin: 15px;
+    object-fit: cover;
+
+
+}
+
+.storeImg>img{
+    width: 70px;
+    height: 70px;
+
+
+}
+
+
+
+.storeBox ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+}
+
+.storeBox ul li{
+    margin: 30px;
+    padding: 0;
+    vertical-align: center;
+
+}
+
+.storeBoxText{
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+
+}
+.storeName>a{
+    color: black;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+
+}
+
+.storeCategory{
+    color: black;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+
+.mainContainer{
+    display: flex;
+    justify-content: center;
+}
+
+#floatMenu {
+    position: relative;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    top: 20px;
+    background-color: #0DA2AB;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+input{
+    margin: 0 10px 0 10px;
+}
+
+input.location-button {
+    background: url("../img/location.png") no-repeat;
+    padding: 0;
+    width: 45px;
+    height: 44px;
+    border-style: none;
+    cursor: pointer;
+}
+
+input.mic-button {
+    background: url("../img/mic.png") no-repeat;
+    padding: 0;
+    width: 45px;
+    height: 44px;
+    border-style: none;
+    cursor: pointer;
+}
+
+input.cart-button {
+    background: url("../img/cart.png") no-repeat;
+    padding: 0;
+    width: 45px;
+    height: 44px;
+    border-style: none;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+
+    .locationBox{
+        width: 95%;
+        height: auto;
+    }
+    .menuCategory{
+        width: 95%;
+    }
+    .storeBox{
+        width: 95%;
+    }
+
+    .storeName>a{
+        color: black;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+
+    }
+
+    .storeCategory{
+        color: black;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+    }
+
+    .storeBoxText{
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+
+    }
+
+}
+

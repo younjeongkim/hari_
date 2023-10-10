@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Shop">
+    <insert id="shopInsert" parameterType="shop">
+        INSERT INTO tb_business (bId, bPwd, bEmail, bOwner, bPhone, bName, bNo, bAddr, bCategory)
+        VALUES (#{bId}, #{bPwd}, #{bEmail}, #{bOwner}, #{bPhone}, #{bName}, #{bNo}, #{bAddr}, #{bCategory})
+    </insert>
+
+    <select id="shopSelect" parameterType="shop" resultType="shop">
+        SELECT bId, bName from tb_business WHERE bId = #{bId} AND bPwd = #{bPwd}
+    </select>
+
+    <select id="shopSelectOne" parameterType="String" resultType="shop">
+        SELECT * FROM tb_business
+        WHERE bId = #{bId}
+    </select>
+
+    <update id="shopUpdate" parameterType="shop">
+        UPDATE tb_business SET bPwd = #{bPwd}, bEmail = #{bEmail}, bOwner = #{bOwner}, bPhone = #{bPhone}, bName = #{bName}, bNo = #{bNo}, bAddr = #{bAddr}, bCategory = #{bCategory}
+        WHERE bId = #{bId}
+    </update>
+</mapper>

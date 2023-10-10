@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.back{
+    margin:10px;
+    background: url("../img/back.png") no-repeat;
+    width: 55px;
+    height: 55px;
+    border-style: none;
+    cursor: pointer;
+}
+
+.home{
+    margin:10px;
+    width: 55px;
+    height: 55px;
+    border-style: none;
+    cursor: pointer;
+    background: url("../img/homeWeb.png") no-repeat center;
+}
+
+.locationContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.locationBox {
+    padding: 10px;
+    width: 480px;
+}
+.locationText{
+    color: #0DA2AB;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 5px;
+}
+
+.myLocation{
+    display: flex;
+    flex-direction: row;
+}
+
+.myLocationText{
+    color: black;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+
+}
+
+.menuCategory {
+    width: 100%;
+    height: 50px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #949494;
+    box-shadow: 5px 5px 5px #949494;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+.menuCategoryText{
+
+    color: #0DA2AB;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    margin: 30px;
+
+}
+
+.checkDegree{
+    color: black;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+
+}
+
+
+.cntButton{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #0DA2AB;
+    color: white;
+    cursor: pointer;
+}
+
+.nextButtonSec{
+    display: flex;
+    justify-content: right;
+}
+
+.next{
+        width: 70px;
+        height: 30px;
+        border-color: #0DA2AB;
+        background-color: #ffff;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        border-radius: 10px;
+
+
+}
+
+
+.mainContainer{
+    display: flex;
+    justify-content: center;
+}
+
+#floatMenu {
+    position: relative;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    top: 20px;
+    background-color: #0DA2AB;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+    & input {
+    margin: 0 10px 0 10px;
+}
+
+    & input.location-button {
+    background: url("../img/location.png") no-repeat;
+    padding: 0;
+    width: 45px;
+    height: 44px;
+    border-style: none;
+    cursor: pointer;
+}
+
+    & input.mic-button {
+    background: url("../img/mic.png") no-repeat;
+    padding: 0;
+    width: 45px;
+    height: 44px;
+    border-style: none;
+    cursor: pointer;
+}
+
+    & input.cart-button {
+    background: url("../img/cart.png") no-repeat;
+    padding: 0;
+    width: 45px;
+    height: 44px;
+    border-style: none;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+
+    .locationBox{
+        width: 95%;
+        height: auto;
+    }
+    .menuCategory{
+        width: 95%;
+    }
+    .storeBox{
+        width: 95%;
+    }
+
+    .storeName>a{
+        color: black;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+
+    }
+
+    .storeCategory{
+        color: black;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+    }
+
+    .storeBoxText{
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+
+    }
+
+}

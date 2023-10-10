@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/orderDetail.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;800&display=swap" rel="stylesheet">
+  <title>HARI</title>
+</head>
+<body>
+<nav>
+  <input type="button" class="back">
+  <input type="button" class="home">
+</nav>
+
+<div class="locationContainer">
+  <div class="locationBox">
+
+    <div class="myLocation">
+      <span class="myLocationText">스타벅스 이수역점</span>
+    </div>
+    <br>
+    <div class="menuCategory">
+      <div class="menuCategoryText" >주문을 확인 해주세요</div>
+    </div>
+    <br>
+<!-- 주문 DB 불러오기-->
+    <div class="orderDetailBox">
+      <div class="XButton"><button class="XButtonX">X</button></div>
+      <div class="orderDetailSec">
+      <img src="/img/ame.jpg" alt="커피" class="orderImg">
+      <ul>
+        <li><span>아메리카노</span></li>
+        <li><span>따뜻한 HOT</span></li>
+        <li><span>3,500</span><span>원</span></li>
+      </ul>
+      </div>
+    </div>
+    <br>
+    <div class="orderDetailBox">
+      <div class="XButton"><button class="XButtonX">X</button></div>
+      <div class="orderDetailSec">
+        <img src="/img/ame.jpg" alt="커피" class="orderImg">
+        <ul>
+          <li><span>아메리카노</span></li>
+          <li><span>따뜻한 HOT</span></li>
+          <li><span>3,500</span><span>원</span></li>
+        </ul>
+      </div>
+    </div>
+    <br>
+      <div class="couponSec">
+        <img src="/img/coupon.png" alt="쿠폰" class="couponIcon">
+        <input type="text" placeholder="쿠폰 번호를 입력 해주세요" class="couponInput">
+        <input type="button" value="등록" class="couponInsert">
+      </div>
+    <br>
+    <div class="payAmount">
+    <ul>
+      <li>주문 금액<span class="price">3,500<span>원</span></span></li>
+      <li>할인 금액<span class="price">0<span>원</span></span></li>
+      <li>최종 결제 금액<span class="price">3,500<span>원</span></span></li>
+    </ul>
+    </div>
+
+    <br>
+    <div class="payButton" >
+      <button class="pay">결제하기</button>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+
+
+</html>
