@@ -4,6 +4,8 @@ nav{
     justify-content: space-between;
 }
 
+
+
 .nav{
     color: #000000;
     font-family: 'Noto Sans KR', sans-serif;
@@ -144,11 +146,10 @@ ul>.pagingNum{
 
 }
 
-.searchBar{
+form{
     display: flex;
     flex-direction: row;
     justify-content: center;
-
 }
 
 .dropRow{
@@ -156,7 +157,6 @@ ul>.pagingNum{
     padding: 5px;
     margin: 5px;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 16px;
     font-weight: 400;
 }
 
@@ -165,3 +165,4 @@ ul>.pagingNum{
     border-radius: 5px;
     margin: 5px;
 }
+

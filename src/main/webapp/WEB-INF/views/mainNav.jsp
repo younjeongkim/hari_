@@ -16,7 +16,7 @@
 </head>
 <body>
 <nav>
-    <a href="/"> <div class="nav">HARI</div></a>
+    <a href="/hari/mainNav"> <div class="nav">HARI</div></a>
     <img src="../img/logoutWeb.png" class="loginIcon" alt="home" onclick="goBack()">
 
 </nav>

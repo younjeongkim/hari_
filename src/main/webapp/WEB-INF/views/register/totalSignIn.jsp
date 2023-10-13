@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav>
-    <a href="/"> <div class="nav">HARI</div></a>
+    <a href="/hari/mainNav"> <div class="nav">HARI</div></a>
     <div class="navIcon">
         <img src="/img/loginWeb.png" class="loginIcon" alt="home" onclick="goBack()">
     </div>
@@ -22,6 +22,7 @@
     <div class="SignInContainer">
         <div class="SignInBox">
             <div class="SignInTitleBar">
+
         <div class="SPageTitle" id="userSignTitle" style="display:block">일반 회원가입</div>
             <div class="SPageTitle" id="bizSignTitle" style="display:none;">비즈니스 회원가입</div>
             <div class="switchSec">
@@ -76,7 +77,7 @@
         </form>
 
 <!--            <form action="/hari/totalLogIn" method="post" id="bizSign"  style="display:none;">-->
-            <form action="/hari/shopSignInOk" method="post" id="bizSign"  style="display:none;">
+        <form action="/hari/shopSignInOk" method="post" id="bizSign"  style="display:none;">
                 <div class="SBox">
                     <div class="SRow">
                         <img src="/img/idIcon.png" class="SIcon" alt="아이디">
@@ -93,49 +94,179 @@
                         <input class="SInputRow" type="text" name="bEmail" placeholder="이메일"/>
                     </div>
                 </div>
+
                 <br><br>
+
                 <div class="SBox">
                     <div class="SRow">
                         <img src="/img/idIcon.png" class="SIcon" alt="대표자 이름">
                         <input class="SInputRow" type="text" name="bOwner" placeholder="대표자 이름"/><br>
                     </div>
+
                     <hr class="SignBoxLine">
+
                     <div class="SRow">
                         <img src="/img/phone.png" class="SIcon" alt="연락처">
                         <input class="SInputRow" type="text" name="bPhone" placeholder="연락처"/><br>
                     </div>
+
                     <hr class="SignBoxLine">
+
                     <div class="SRow">
                         <img src="/img/shop.png" class="SIcon" alt="가게 이름">
                         <input class="SInputRow" type="text" name="bName" placeholder="가게 이름"/><br>
                     </div>
+
                     <hr class="SignBoxLine">
+
                     <div class="SRow">
                         <img src="/img/shop.png" class="SIcon" alt="사업자등록번호">
                         <input class="SInputRow" type="text" name="bNo" placeholder="사업자등록번호"/><br>
                     </div>
+
                     <hr class="SignBoxLine">
-                    <div class="SRow">
+
+                    <div class="SRow_shopAddr">
                         <img src="/img/shop.png" class="SIcon" alt="가게 주소">
-                        <input class="SInputRow" type="text" name="bAddr" placeholder="가게 주소"/><br>
+                        <span class="shopAddr">가게 주소</span>
                     </div>
+
+                    <div style="display: block; width: 100%;">
+                        <div>
+                        <div class="SRow_addr">
+
+                            <input type="text" name="bAddr" id=addrDB placeholder="가게 주소" style="visibility: hidden; height:0;"/>
+                            <input type="text" name="bLatitude" id=lat style="visibility: hidden; height:0;">
+                            <input type="text" name="bLongitude" id=lng style="visibility: hidden; height:0;">
+                            <div style="display: flex; flex-direction: row; align-items: center;">
+                            <input type="text" id="postcode" class="inputAddr" placeholder="우편번호">
+                            <input type="button" onclick="execDaumPostcode()" class="postCodeButton" value="우편번호 찾기"><br>
+                            </div>
+
+                            <input type="text" id="address" class="inputAddr" placeholder="주소">
+
+                            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                            <input type="text" id="detailAddress" class="inputAddr" placeholder="상세주소">
+                            <input type="text" id="extraAddress" class="inputAddr" placeholder="참고항목">
+                            </div>
+                            <br>
+                            <div id="wrap" style="display:none;border:1px solid;width:100%;height:auto;margin:5px 0;position:relative">
+                            <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
                     <hr class="SignBoxLine">
+
                     <div class="SRow">
                         <img src="/img/shop.png" class="SIcon" alt="업종 분류">
                         <input class="SInputRow" type="text" name="bCategory" placeholder="업종 분류"/><br>
                     </div>
+                    <br>
+                        <input class="SignInButton" type="submit" id="bizSignInSubmit"value="확인">
 
                 </div>
-                <br>
-                <input class="SignInButton" type="submit" value="확인">
-            </form>
 
+        </form>
+
+<br>
         </div>
     </div>
 </div>
-<br>
-
 </body>
+
+<%--카카오 우편번호 서비스 자바스크립트--%>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+
+    function foldDaumPostcode() {
+        var element_wrap = document.getElementById('wrap');
+        element_wrap.style.display = 'none';
+    }
+
+    function execDaumPostcode() {
+        var element_wrap = document.getElementById('wrap');
+
+        const currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+        new daum.Postcode({
+            oncomplete: function (data) {
+                let addr = '';
+                let detailAddress = '';
+                let extraAddr = '';
+
+                if (data.userSelectedType === 'R') {
+                    addr = data.roadAddress;
+                } else {
+                    addr = data.jibunAddress;
+                }
+
+                if (data.userSelectedType === 'R') {
+                    if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                        extraAddr += data.bname;
+                    }
+                    if (data.buildingName !== '' && data.apartment === 'Y') {
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    if (extraAddr !== '') {
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    document.getElementById("extraAddress").value = extraAddr;
+                } else {
+                    document.getElementById("extraAddress").value = '';
+                }
+
+                document.getElementById('postcode').value = data.zonecode;
+                document.getElementById("address").value = addr;
+                document.getElementById("detailAddress").focus();
+                document.getElementById("detailAddress").value = detailAddress;
+                document.getElementById("addrDB").value=addr;
+
+                // iframe을 넣은 element를 안보이게 합니다.
+                element_wrap.style.display = 'none';
+
+                document.body.scrollTop = currentScroll;
+
+                // Kakao API로 주소 검색을 실행
+                console.log(addr);
+
+
+                $.ajax({
+                    url: 'https://dapi.kakao.com/v2/local/search/address.json', // 주소를 JSON으로 요청
+                    type: 'GET',
+                    headers: {
+                        'Authorization': 'KakaoAK 7e4567fb1683a25d1d9f3fc0240900a5'
+                    },
+                    data: { query: addr },
+                    success: function (response) {
+                        if (response && response.documents && response.documents.length > 0) {
+                            const lat = response.documents[0].x;
+                            const lng = response.documents[0].y;
+                            console.log(lat, lng);
+                            document.getElementById("lat").value=lat;
+                            document.getElementById("lng").value=lng;
+
+                        } else {
+                            console.log('주소 정보를 찾을 수 없습니다.');
+                        }
+                    },
+                    error: function (error) {
+                        console.error('오류 발생:', error);
+                    }
+                });
+            },
+            onresize: function (size) {
+                element_wrap.style.height = size.height + 'px';
+            },
+            width: '100%',
+            height: '100%'
+        }).embed(element_wrap);
+
+        element_wrap.style.display = 'block';
+    }
+</script>
+
 <script>
     const toggle=document.querySelector('#toggle');
     toggle.addEventListener('change', (event) => {

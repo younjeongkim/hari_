@@ -45,9 +45,46 @@
             </div>
     <!-- 반복문 DB 불러오기 -->
             <br>
-            <div class="storeBoxContainer" id="storeBoxContainer">
-
+            <div class="storeBox">
+                <div class="storeImg"><img src="/img/ame.jpg" alt="매장 이미지"></div>
+                <div class="storeBoxText">
+                <ul>
+                    <li class="storeName"><a href="#">스타벅스 이수역</a></li>
+                    <li class="storeCategory">카페</li>
+                </ul>
+                </div>
             </div>
+            <br>
+            <div class="storeBox">
+                <div class="storeImg"><img src="/img/ame.jpg" alt="매장 이미지"></div>
+                <div class="storeBoxText">
+                    <ul>
+                        <li class="storeName"><a href="#">스타벅스 이수역</a></li>
+                        <li class="storeCategory">카페</li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div class="storeBox">
+                <div class="storeImg"><img src="/img/ame.jpg" alt="매장 이미지"></div>
+                <div class="storeBoxText">
+                    <ul>
+                        <li class="storeName"><a href="#">스타벅스 이수역</a></li>
+                        <li class="storeCategory">카페</li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div class="storeBox">
+                <div class="storeImg"><img src="/img/ame.jpg" alt="매장 이미지"></div>
+                <div class="storeBoxText">
+                    <ul>
+                        <li class="storeName"><a href="#">스타벅스 이수역</a></li>
+                        <li class="storeCategory">카페</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </div>
     </div>
@@ -55,11 +92,6 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    /*
-    * <추가 사항>
-    * 지현
-    * 현재 내 위치의 경도와 위도 정보를 가져와서 내 주변 반경 2km이내의 등록된 가게가 목록에 나타나게 한다.
-    */
     var options = {
         enableHighAccuracy: true,
         timeout: 5000,
@@ -82,9 +114,6 @@
             success: function(data) {
                 console.log(data);
                 document.getElementById('myLocationText').innerHTML = data.documents[0].address.region_2depth_name + ' ' + data.documents[0].address.region_3depth_name;
-
-                // 주소 정보를 이용하여 가게 정보를 불러오고 표시
-                loadStores(lat, lon);
             }
         });
     }
@@ -93,76 +122,8 @@
         console.warn('ERROR(' + err.code + '): ' + err.message);
     }
 
-    function loadStores(lat, lon) {
-        $.ajax({
-            url: '/hari/locateStores',
-            type: 'GET',
-            data: {
-                lat: lat,
-                lon: lon
-            },
-            success: function(data) {
-                console.log(data);
-
-                displayStores(data); // 가게 정보를 화면에 표시
-            }
-        });
-    }
-
-    function displayStores(data) {
-        var storeContainer = document.getElementById('storeBoxContainer');
-        storeContainer.innerHTML = ''; // 기존 내용 초기화
-
-        // data를 반복하여 가게 정보를 생성하여 표시
-        data.forEach(function(store) {
-            var storeBox = document.createElement('div');
-            storeBox.className = 'storeBox';
-
-            var storeImg = document.createElement('div');
-            storeImg.className = 'storeImg';
-            var img = document.createElement('img');
-            img.src = '/img/ame.jpg'; // 가게 이미지 URL
-            img.alt = '매장 이미지';
-            storeImg.appendChild(img);
-
-            var storeBoxText = document.createElement('div');
-            storeBoxText.className = 'storeBoxText';
-
-            var ul = document.createElement('ul');
-            var liStoreName = document.createElement('li');
-            liStoreName.className = 'storeName';
-            var aStoreName = document.createElement('a');
-            aStoreName.href = '#'; // 가게 상세 페이지 URL
-            aStoreName.textContent = store.bName; // 가게 이름
-            liStoreName.appendChild(aStoreName);
-
-            var liStoreCategory = document.createElement('li');
-            liStoreCategory.className = 'storeCategory';
-            liStoreCategory.textContent = store.bCategory; // 가게 카테고리
-
-            ul.appendChild(liStoreName);
-            ul.appendChild(liStoreCategory);
-            storeBoxText.appendChild(ul);
-
-            storeBox.appendChild(storeImg);
-            storeBox.appendChild(storeBoxText);
-
-            storeContainer.appendChild(storeBox);
-        });
-    }
-
     $("#myLocation").click(function() {
         navigator.geolocation.getCurrentPosition(success, error, options);
-    });
-
-    // 페이지 로드 시 위치 정보 가져오기
-    $(document).ready(function () {
-        // 위치 정보 액세스 권한을 요청
-        if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition(success, error, options);
-        } else {
-            console.log("브라우저가 위치 정보를 지원하지 않습니다.");
-        }
     });
 </script>
 
