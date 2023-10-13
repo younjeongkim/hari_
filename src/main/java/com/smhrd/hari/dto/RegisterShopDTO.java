@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -19,6 +20,25 @@ public class RegisterShopDTO {
     private String bAddr;
     private String bCategory;
     private LocalDateTime createdAt;
+
+    private BigDecimal bLatitude;
+    private BigDecimal bLongitude;
+
+    public BigDecimal getbLatitude() {
+        return bLatitude;
+    }
+
+    public void setbLatitude(BigDecimal bLatitude) {
+        this.bLatitude = bLatitude;
+    }
+
+    public BigDecimal getbLongitude() {
+        return bLongitude;
+    }
+
+    public void setbLongitude(BigDecimal bLongitude) {
+        this.bLongitude = bLongitude;
+    }
 
     public String getbId() {
         return bId;
