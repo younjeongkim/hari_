@@ -14,7 +14,7 @@
 </head>
 <body>
 <nav>
-  <a href="/"> <div class="nav">HARI</div></a>
+  <a href="/hari/mainNav"> <div class="nav">HARI</div></a>
   <div class="navIcon">
     <img src="/img/loginWeb.png" class="loginIcon" alt="home" onclick="goBack()">
   </div>
@@ -25,7 +25,7 @@
       <div class="boardListBox">
         <div class="titleNButton">
         <div class="boardPageTitle">고객 문의</div><br>
-          <div>총 레코드 수 : ${pagingDTO.totalRecord}</div>
+          <div style="display: none">총 레코드 수 : ${pagingDTO.totalRecord}</div>
         <div style="margin-left: auto;">
           <a href="/hari/qnaWrite">
             <button>글쓰기</button>
@@ -131,13 +131,23 @@
 <%--  </div>--%>
 
   <div class="searchBar"><br>
-    <form action="/hari/qnaList">
-      <select class="dropRow" name="searchKey" id="searchKeySelect">
+    <form action="/hari/qnaList" style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+      <select class="dropRow" name="searchKey" id="searchKeySelect" style="height: 30px; font-size: 12px;">
         <option value="userId">아이디</option>
         <option value="subject">제목</option>
         <option value="content">본문</option>
       </select><br>
       <input type="text" class="searchBox" name="searchWord" id="searchWord">
+      <input style="border: 0;
+                  width: 100px;
+                  height: 30px;
+                  background:#0DA2AB;
+                  color:#ffffff;
+                  border-radius: 5px;
+                  font-family: 'Noto Sans KR', sans-serif;
+                  font-size: 16px;
+                  cursor: pointer;
+                  " type="button" class="searchButton" value="검색">
     </form>
   </div>
 

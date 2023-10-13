@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav>
-    <a href="/"> <div class="nav">HARI</div></a>
+    <a href="/hari/mainNav"> <div class="nav">HARI</div></a>
     <div class="navIcon">
         <img src="/img/loginWeb.png" class="loginIcon" alt="home">
     </div>

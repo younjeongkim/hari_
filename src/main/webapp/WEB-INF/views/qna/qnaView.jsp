@@ -14,7 +14,7 @@
 </head>
 <body>
 <nav>
-  <a href="/"> <div class="nav">HARI</div></a>
+  <a href="/hari/mainNav"> <div class="nav">HARI</div></a>
   <div class="navIcon">
     <img src="/img/loginWeb.png" class="loginIcon" alt="home" onclick="goBack()">
   </div>
@@ -25,20 +25,25 @@
     <div class="boardListBox">
 
       <div class="boardPageTitle">고객 문의</div><br>
+      <!--  디자인 수정 중   -->
+      <ul>
+        <li class="boardWriteTitle">제목</li>
+        <li class="boardWriteTitle">${qnaDTO.subject}</li>
+      </ul>
+      <div class="boardContentBox">
+        <div class="boardWriteContent" >${qnaDTO.content}</div><br>
+      </div>
+      <br>
+      <hr>
       <!--  DB 불러오기   -->
-      <div class="boardWriteTitle" > ${qnaDTO.subject} </div><br>
       <br>
-      <div class="boardWriteContent" >${qnaDTO.content}</div><br>
-      <br>
-      <div>파일 불러오기 </div>
-    </div>
-    <br>
-    <div style="float: right;">
-      <button onclick="goList()">목록</button>
-      <c:if test="${logId == qnaDTO.userId}">
-        <button onclick="qnaEdit()">수정</button>
-        <button onclick="qnaDel()">삭제</button>
-      </c:if>
+      <div style="float: right;">
+        <button onclick="goList()">목록</button>
+        <c:if test="${logId == qnaDTO.userId}">
+          <button onclick="qnaEdit()">수정</button>
+          <button onclick="qnaDel()">삭제</button>
+        </c:if>
+      </div>
     </div>
   </div>
 </div>

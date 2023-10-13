@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav>
-    <a href="/"> <div class="nav">HARI</div></a>
+    <a href="/hari/mainNav"> <div class="nav">HARI</div></a>
     <div class="navIcon">
         <img src="/img/loginWeb.png" class="loginIcon" alt="home" onclick="goBack()">
     </div>
@@ -27,8 +27,8 @@
                 <br>
                 <textarea class="boardWriteContent" name="content" placeholder="내용"></textarea><br>
                 <br>
-                <input type="file">
         </div>
+        <hr>
         <br>
         <div style="float: right;">
             <button id="registerButton">등록</button>

@@ -146,6 +146,7 @@ input:checked + .slider:before {
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
+    border-radius: 10px;
     padding: 20px;
 }
 
@@ -163,7 +164,48 @@ input:checked + .slider:before {
 .SRow{
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
+
+.SRow_shopAddr{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    color: #949494;
+    font-weight: 400;
+}
+
+.shopAddr{
+    margin: 0 0 0 10px;
+}
+.SRow_addr{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputAddr{
+    margin: 5px;
+    padding: 5px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+}
+
+.postCodeButton{
+    border: 0;
+    background-color: #0DA2AB;
+    width: 100px;
+    height: 33px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: 5px;
+    color: #f1f1f1;
+}
+
 
 .SIcon{
     width: 15px;
